@@ -47,10 +47,10 @@
 
     // starts from here
     $(function () {
-      const fortuneResulets = {
+      const fortuneResults = {
         money: [
           {
-            starts: "★★★",
+            stars: "★★★",
             detail: "最高の金運です！いつの間にかお金が溜まっているかも・・・？"
           },
           {
@@ -96,19 +96,19 @@
 
       // documentは仕様　jsfs釦をクリックすると関数が開始
       $(document).on('click', '.js-fortune-start', function () {
-        for (let it in fortuneResulets) {
+        for (let i in fortuneResults) {
           console.log(i);
 
           // それぞれ3通り affect in 'stars & detail' results come out randomely
           const rand = Math.floor(Math.random() * 3);
 
-          console.log(fortuneResulets[i][rand]['stars']);
-          console.log(fortuneResulets[i][rand]['detail']);
+          console.log(fortuneResults[i][rand]['stars']);
+          console.log(fortuneResults[i][rand]['detail']);
 
           const $target = $('.' + i);
 
-          $target.find('.stars').text(fortuneResulets[i][rand]['stars']);
-          $target.find('.stars').text(fortuneResulets[i][rand]['detail']);
+          $target.find('.stars').text(fortuneResults[i][rand]['stars']);
+          $target.find('.detail').text(fortuneResults[i][rand]['detail']);
 
 
           // display
@@ -122,7 +122,7 @@
         }
       });
 
-      $(document).on('click', js - fortuneResulets, function () {
+      $(document).on('click', '.js-fortune-restart', function () {
         $('.result').fadeOut(1000);
 
         $(this).toggleClass('js-fortune-restart');
